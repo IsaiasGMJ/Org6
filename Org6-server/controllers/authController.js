@@ -1,10 +1,11 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 //crear token JWT
 const generateToken = (id) =>{
-    return jwt.sign({id}, procces.env.JWT_SECRET,{
+    return jwt.sign({id}, process.env.JWT_SECRET,{
         expiresIn: '30d'
     });
 };
@@ -22,8 +23,7 @@ try{
     res.status(201).json({
         _id: user._id,
         username: user.username,
-        email:user.email,
-        token:generateToken(user._id)
+        email:user.email
     });
 } catch(error){
     res.status(500).json({message: error.message});

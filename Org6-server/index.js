@@ -6,6 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var dotenv = require('dotenv');
 var bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 // Cargar variables de entorno
 dotenv.config();
@@ -51,10 +52,10 @@ app.use('/api/tasks', taskRoutes);
 app.use('/api/diets', dietRouter);
 app.use('/api/habits', habitRouter);
 app.use('/api/projects', projectRouter);
-app.use('/api/daily-routines', dailyRoutineRouter);
+app.use('/api/daily', dailyRoutineRouter);
 app.use('/api/events', eventRouter);
 app.use('/api/journals', journalRouter);
-app.use('/api/exercise-routines', exerciseRoutineRouter);
+app.use('/api/exercise', exerciseRoutineRouter);
 app.use('/api/goals', goalRouter);
 
 
