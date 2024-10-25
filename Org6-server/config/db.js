@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
         });
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
@@ -13,3 +11,4 @@ const connectDB = async () => {
     }
 };
 module.exports = connectDB;
+//Actualmente no se manda a llamar este archivo la conexion se maneja desde index.js
